@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class ScentsDisplay : MonoBehaviour
 {
-    public GameObject[] scents = new GameObject[5];
-    public Button[] ScentsButtons = new Button[5];
+    public GameObject[] scents = new GameObject[4];
+    public Button[] ScentsButtons = new Button[4];
     public Sprite defaultSprite = null;
     
     public void AddItem(GameObject item)
@@ -29,8 +29,8 @@ public class ScentsDisplay : MonoBehaviour
             else if (scents[i] == null){
                 scents[i] = item;
                 //update UI
-                ScentsButtons[i].image.overrideSprite = item.GetComponent<Image>().sprite;
-                ScentsButtons[i].GetComponentInChildren<Text>().text = item.name;
+                //ScentsButtons[i].image.overrideSprite = item.GetComponent<Image>().sprite;
+                ScentsButtons[i].GetComponentInChildren<TMPro.TextMeshProUGUI>().text = item.name;
                 Debug.Log(item.name +" was added");
                 itemAdded = true;
                 break;
@@ -49,8 +49,8 @@ public class ScentsDisplay : MonoBehaviour
             if(scents[i] == item){
                 scents[i] = null;
                 //update UI
-                ScentsButtons[i].image.overrideSprite = defaultSprite;
-                ScentsButtons[i].GetComponentInChildren<Text>().text = "Empty";
+                //ScentsButtons[i].image.overrideSprite = defaultSprite;
+                ScentsButtons[i].GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "None";
                 Debug.Log(item.name +" was removed");
                 itemRemoved = true;
                 break;
