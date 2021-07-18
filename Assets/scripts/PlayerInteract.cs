@@ -10,6 +10,7 @@ public class PlayerInteract : MonoBehaviour
     public InteractionObject currentInterObjScript = null;
     public Inventory inventory;
     public ScentsDisplay scents;
+    public GameObject WOD;
 
     void Updates()
     {
@@ -22,12 +23,20 @@ public class PlayerInteract : MonoBehaviour
             //do something with the object
             currentInterObj.SendMessage("DoInteraction");
         }
+        //CharacterController cc = GetComponent<CharacterController>();
+        //if(WOD.activeSelf == true)
+        //{
+        //    cc.enabled = false; 
+        //}
+        //else{
+        //    cc.enabled = true;
+        //}
     }
 
     void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("InterObject")){
-            Debug.Log(other.name);
+            //Debug.Log(other.name);
             currentInterObj = other.gameObject;
         }
     }
@@ -35,7 +44,7 @@ public class PlayerInteract : MonoBehaviour
       void OnTriggerStay(Collider other)
     {
         if(other.CompareTag("Scents")){
-            Debug.Log(other.name);
+            //Debug.Log(other.name);
             currentScent = other.gameObject;
             scents.AddItem(currentScent);
         }

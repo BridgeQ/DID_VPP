@@ -7,6 +7,7 @@ public class ScentsDisplay : MonoBehaviour
 {
     public GameObject[] scents = new GameObject[4];
     public Button[] ScentsButtons = new Button[4];
+    public Button[] ScentsButtonsUI= new Button[4];
     public Sprite defaultSprite = null;
     
     public void AddItem(GameObject item)
@@ -31,15 +32,16 @@ public class ScentsDisplay : MonoBehaviour
                 //update UI
                 //ScentsButtons[i].image.overrideSprite = item.GetComponent<Image>().sprite;
                 ScentsButtons[i].GetComponentInChildren<TMPro.TextMeshProUGUI>().text = item.name;
-                Debug.Log(item.name +" was added");
+                ScentsButtonsUI[i].GetComponentInChildren<TMPro.TextMeshProUGUI>().text = item.name;
+                //Debug.Log(item.name +" was added");
                 itemAdded = true;
                 break;
             }
         }
         }
-        if (!itemAdded){
-            Debug.Log("scents Full - Item Not Added");
-        }
+        //if (!itemAdded){
+            //Debug.Log("scents Full - Item Not Added");
+        //}
     }
 
     public void Remove(GameObject item)
@@ -51,6 +53,7 @@ public class ScentsDisplay : MonoBehaviour
                 //update UI
                 //ScentsButtons[i].image.overrideSprite = defaultSprite;
                 ScentsButtons[i].GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "None";
+                ScentsButtonsUI[i].GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "None";
                 Debug.Log(item.name +" was removed");
                 itemRemoved = true;
                 break;

@@ -15,32 +15,38 @@ public class DetailedPanel : MonoBehaviour
     public Button closeButton;
 
     public GameObject MiniDetectMenu;
+    public GameObject DetailedPanelUI;
 
     void Start()
     {
         Scent1Button.onClick.AddListener(call:() => 
         {
+            DetailedPanelUI.SetActive(true);
             DetailedPanelAnimator.SetTrigger(name:"Fadein");
             MiniDetectMenu.SetActive(false);
         });
         Scent2Button.onClick.AddListener(call:() => 
         {
+            DetailedPanelUI.SetActive(true);
             DetailedPanelAnimator.SetTrigger(name:"Fadein");
             MiniDetectMenu.SetActive(false);
         });
         Scent3Button.onClick.AddListener(call:() => 
         {
+            DetailedPanelUI.SetActive(true);
             DetailedPanelAnimator.SetTrigger(name:"Fadein");
             MiniDetectMenu.SetActive(false);
         });
         Scent4Button.onClick.AddListener(call:() => 
         {
+            DetailedPanelUI.SetActive(true);
             DetailedPanelAnimator.SetTrigger(name:"Fadein");
             MiniDetectMenu.SetActive(false);
         });
         closeButton.onClick.AddListener(call:() => 
         {
             DetailedPanelAnimator.SetTrigger(name:"Fadeout");
+            DetailedPanelUI.SetActive(false);
             MiniDetectMenu.SetActive(true);
         });
     }

@@ -14,14 +14,14 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < inventory.Length;i++){
             if(inventory[i] == null){
                 inventory[i] = item;
-                Debug.Log(item.name +" was added");
+                //Debug.Log(item.name +" was added");
                 itemAdded = true;
                 break;
             }
         }
-        if (!itemAdded){
-            Debug.Log("Inventory Full - Item Not Added");
-        }
+        //if (!itemAdded){
+        //    Debug.Log("Inventory Full - Item Not Added");
+        //}
     }
 
     public void Remove(GameObject item)
@@ -30,7 +30,7 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < inventory.Length;i++){
             if(inventory[i] == item){
                 inventory[i] = null;
-                Debug.Log(item.name +" was removed");
+                //Debug.Log(item.name +" was removed");
                 itemRemoved = true;
                 break;
             }
