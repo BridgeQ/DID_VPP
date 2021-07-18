@@ -17,6 +17,7 @@ public class DetailedPanel : MonoBehaviour
     public GameObject MiniDetectMenu;
     public GameObject DetailedPanelUI;
 
+   
     void Start()
     {
         Scent1Button.onClick.AddListener(call:() => 

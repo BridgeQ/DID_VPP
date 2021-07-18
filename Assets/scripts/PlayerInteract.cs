@@ -10,8 +10,8 @@ public class PlayerInteract : MonoBehaviour
     public InteractionObject currentInterObjScript = null;
     public Inventory inventory;
     public ScentsDisplay scents;
-    public GameObject WOD;
-
+   
+    
     void Updates()
     {
         
@@ -21,16 +21,8 @@ public class PlayerInteract : MonoBehaviour
                 inventory.AddItem(currentInterObj);
             }
             //do something with the object
-            currentInterObj.SendMessage("DoInteraction");
         }
-        //CharacterController cc = GetComponent<CharacterController>();
-        //if(WOD.activeSelf == true)
-        //{
-        //    cc.enabled = false; 
-        //}
-        //else{
-        //    cc.enabled = true;
-        //}
+        
     }
 
     void OnTriggerEnter(Collider other)

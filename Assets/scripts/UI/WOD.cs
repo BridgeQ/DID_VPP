@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +11,7 @@ public class WOD : MonoBehaviour
     public GameObject Detecting;
     public GameObject Emitting;
     public GameObject DetailedPanel;
+  
     void Update()
     {
         //Detect the scent
@@ -22,7 +23,7 @@ public class WOD : MonoBehaviour
             MiniDetectMenu.SetActive(true);
             Detecting.SetActive(true);
             Emitting.SetActive(false);
-            DetailedPanel.SetActive(true);
+            DetailedPanel.SetActive(false);
         }
         //Emit the scent
         if (Input.GetKeyDown(KeyCode.F))
