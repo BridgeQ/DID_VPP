@@ -7,6 +7,7 @@ public class FreezeBackground : MonoBehaviour
     
     //cc = FPSController.GetComponents<CharacterController>();
     public GameObject detailedPanel;
+    public GameObject DialoguePanel;
     public bool isFrozen;
     public CharacterController controller;
     //private MouseLook[] mous;
@@ -24,7 +25,7 @@ public class FreezeBackground : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         isFrozen = false;
-        if (detailedPanel.activeSelf == true){
+        if (detailedPanel.activeSelf == true || DialoguePanel.activeSelf == true){
             isFrozen = true;
         }
         else{

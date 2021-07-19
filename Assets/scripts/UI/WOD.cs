@@ -11,6 +11,7 @@ public class WOD : MonoBehaviour
     public GameObject Detecting;
     public GameObject Emitting;
     public GameObject DetailedPanel;
+    public GameObject DialoguePanel;
   
     void Update()
     {
@@ -37,7 +38,7 @@ public class WOD : MonoBehaviour
             DetailedPanel.SetActive(false);
         }
         //Turn off the WOD
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             WODoff.SetActive(true);
             WODemitting.SetActive(false);
@@ -46,6 +47,16 @@ public class WOD : MonoBehaviour
             Detecting.SetActive(false);
             Emitting.SetActive(false);
             DetailedPanel.SetActive(false);
+            DialoguePanel.SetActive(false);
         }
     }
+
+    public void ClosePanel(){
+        DialoguePanel.SetActive(false);
+    }
+
+    
+        
+    
+
 }

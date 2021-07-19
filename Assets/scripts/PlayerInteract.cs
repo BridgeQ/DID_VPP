@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
+using UnityEngine.UI;
 
 public class PlayerInteract : MonoBehaviour
 {
@@ -10,15 +11,20 @@ public class PlayerInteract : MonoBehaviour
     public InteractionObject currentInterObjScript = null;
     public Inventory inventory;
     public ScentsDisplay scents;
-   
     
-    void Updates()
+    void Update()
     {
         
-        if(Input.GetButtonDown("Interact")&& currentInterObj){
+        if(Input.GetKeyDown(KeyCode.I)){
             //check if to be stored inventory
-            if(currentInterObjScript.inventory){
-                inventory.AddItem(currentInterObj);
+            //if(currentInterObjScript.inventory){
+            //    inventory.AddItem(currentInterObj);
+            //}
+            //Debug.Log("Hello????");
+            //check if the object can talk
+            if (currentInterObjScript.talks){
+                //Debug.Log("hereeeeeee");
+                currentInterObjScript.Talk();
             }
             //do something with the object
         }
@@ -30,6 +36,10 @@ public class PlayerInteract : MonoBehaviour
         if(other.CompareTag("InterObject")){
             //Debug.Log(other.name);
             currentInterObj = other.gameObject;
+            currentInterObjScript = currentInterObj.GetComponent<InteractionObject>();
+            if (currentInterObjScript.talks){
+                currentInterObjScript.showHints();
+            }
         }
     }
 
@@ -47,13 +57,18 @@ public class PlayerInteract : MonoBehaviour
         if(other.CompareTag("InterObject")){
             if (other.gameObject == currentInterObj){
                 currentInterObj = null;
-                currentInterObjScript = currentInterObj.GetComponent<InteractionObject>();
+                
             }
         }
          if(other.CompareTag("Scents")){
             scents.Remove(other.gameObject);
         }
+        if (currentInterObjScript.talks){
+            currentInterObjScript.hideHints();
+        }
     }
+
+    
  
  
 }
